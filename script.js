@@ -1,9 +1,9 @@
 // get my DOM elements
 const buttons = document.querySelectorAll('button')
 const body = document.querySelector('body')
-const text = document.querySelector('.test123')
 const allDigits = document.querySelectorAll('h1')
 const buttonsArray = Array.from(buttons)
+const digitsArray = Array.from(allDigits)
 
 // Create Color object
 const color = {
@@ -174,7 +174,9 @@ const genRandom = (color) => {
 // Function for updating the DOM
 const updateDom = (color) => {
   body.style.backgroundColor = color.hex
-  text.innerText = color.pureHex
+  digitsArray.map((digit, index) => {
+    digit.innerText = color.pureHex[index]
+  })
 }
 
 // Function called on buttons being clicked, changes of color
